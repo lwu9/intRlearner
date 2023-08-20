@@ -18,7 +18,8 @@ library(mvtnorm)
 library(stringr)
 library(caret)
 library(ncvreg)
-source("./R/rlasso.R")
+source("./R/rlasso.R")  # import the R code file in the R Directory of this package, otherwise "predict" function in the below will give errors.
+
 seed <- 0
 set.seed(seed)
 # If KPS_data = False: the data generating process in Simulation I in the paper;

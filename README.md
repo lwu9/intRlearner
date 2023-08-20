@@ -1,5 +1,5 @@
 ## intRlearner
-Integrative R learner by Wu and Yang (2022)
+Integrative R learner by Wu and Yang (2022): https://proceedings.mlr.press/v177/wu22a/wu22a.pdf
 
 To install this package in R, run the following commands:
 ```r

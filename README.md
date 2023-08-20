@@ -1,7 +1,17 @@
-# intRlearner
+## intRlearner
 Integrative R learner by Wu and Yang (2022)
 
+To install this package in R, run the following commands:
+```r
+library(devtools) 
+install_github("lwu9/intRlearner")
+```
 
+# Example usage:
+* Generate the data from the experimental study / RCT
+* Generate the data from the observational study / RWE
+```r
+library(intRlearner)
 library(glmnet)
 library(mvtnorm)
 
@@ -65,6 +75,15 @@ rwe_rlasso <- sqrt(mean((rlasso_est_rwe - tau)**2))
 naive_rlasso <- sqrt(mean((rlasso_est_naive - tau)**2))
 print("RMSE of int_rlearner, rct_rlearner, os_rlearner, naive_rlearner:")
 print(c(cmb_rlasso, rct_rlasso, rwe_rlasso, naive_rlasso))
+```
+
+It will print out the results:
+```r
+> print("RMSE of int_rlearner, rct_rlearner, os_rlearner, naive_rlearner:")
+[1] "RMSE of int_rlearner, rct_rlearner, os_rlearner, naive_rlearner:"
+> print(c(cmb_rlasso, rct_rlasso, rwe_rlasso, naive_rlasso))
+[1] 0.8395521 1.5589467 1.4570438 1.3352637
+```
 
 
 

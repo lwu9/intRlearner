@@ -1,3 +1,5 @@
+rm(rlasso)
+rm(predict.rlasso)
 # library(glmnet)
 # library(mvtnorm)
 #

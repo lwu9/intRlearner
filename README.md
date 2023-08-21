@@ -27,7 +27,7 @@ set.seed(seed)
 KPS_data <- FALSE
 if (KPS_data) {
   m <- 2000  # the sample size of RWE
-  n <- 500  # the sample size of RCT
+  n <- 500  # the sample size of RCT, {200, 500, 1000}
   N <- 1e5
   b <- NA
   n0 <- NA
@@ -39,12 +39,12 @@ if (KPS_data) {
   m <- 500
   n <- NA
   N <- 1e5
-  b <- 2.5
+  b <- 2.5  # or 0
   n0 <- 7
   cf <- NA
   multidim <- NA
   p <- 10
-  p0 <- 1# p-2
+  p0 <- 1  # or p-2
 }
 
 dataset <- gen_data(m, N, b=b, p=p, lambda="lambda.min", n0=n0, n=n, KPS_data=KPS_data, multidim=multidim, cf=cf, p0=p0)

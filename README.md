@@ -38,7 +38,7 @@ if (KPS_data) {
   m <- 500
   n <- NA
   N <- 1e5
-  b <- 2.5  # or 0
+  b <- 2.5  # or 0: no unmeasured confounding
   n0 <- 7
   cf <- NA
   multidim <- NA
@@ -82,7 +82,7 @@ It will print out the results:
 > print("RMSE of int_rlearner, rct_rlearner, os_rlearner, naive_rlearner:")
 [1] "RMSE of int_rlearner, rct_rlearner, os_rlearner, naive_rlearner:"
 > print(c(cmb_rlasso, rct_rlasso, rwe_rlasso, naive_rlasso))
-[1] 0.8395521 1.5589467 1.4570438 1.3352637
+[1] 0.8664778 1.5589467 1.4570438 1.3032480
 ```
 
 

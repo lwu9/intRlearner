@@ -18,7 +18,6 @@ library(mvtnorm)
 library(stringr)
 library(caret)
 library(ncvreg)
-source("./R/rlasso.R")  # import the R code file in the R Directory of this package, otherwise "predict" function in the below will give errors.
 
 seed <- 0
 set.seed(seed)
@@ -58,17 +57,17 @@ newx_rlearner <- dataset$newx_rlearner
 tau <- dataset$tau
 # R-learner method with RCT
 rlasso_fit_rct <- rlasso(x=x_rct, w=a_rct, y=y_rct, p=p)
-rlasso_est_rct <- predict(rlasso_fit_rct, newx_rlearner)
+rlasso_est_rct <- predict.rlasso(rlasso_fit_rct, newx_rlearner)
 # R-learner method with RWE
 rlasso_fit_rwe <- rlasso(x=x_rwe, w=a_rwe, y=y_rwe, p=p)
-rlasso_est_rwe <- predict(rlasso_fit_rwe, newx_rlearner)
+rlasso_est_rwe <- predict.rlasso(rlasso_fit_rwe, newx_rlearner)
 # Naive data combination
 rlasso_fit_naive <- rlasso(x=rbind(x_rct, x_rwe), w=c(a_rct, a_rwe), y=c(y_rct, y_rwe), p=p)
-rlasso_est_naive <- predict(rlasso_fit_naive, newx_rlearner)
+rlasso_est_naive <- predict.rlasso(rlasso_fit_naive, newx_rlearner)
 # R-learner for the combined data
 rlasso_fit_cmb <- intrlearner(x=rbind(x_rct, x_rwe), w=c(a_rct, a_rwe),
                               y=c(y_rct, y_rwe), s=c(rep(1, length(a_rct)), rep(0, m)), p=p)
-rlasso_est_cmb <- predict(rlasso_fit_cmb, newx_rlearner)
+rlasso_est_cmb <- predict.rlasso(rlasso_fit_cmb, newx_rlearner)
 cmb_rlasso <- sqrt(mean((rlasso_est_cmb - tau)**2))
 
 rct_rlasso <- sqrt(mean((rlasso_est_rct - tau)**2))

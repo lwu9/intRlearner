@@ -1,5 +1,4 @@
-rm(rlasso)
-rm(predict.rlasso)
+# The following two functions are from https://github.com/xnie/rlearner
 # library(glmnet)
 # library(mvtnorm)
 #
